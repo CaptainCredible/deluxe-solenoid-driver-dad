@@ -30,7 +30,7 @@ basic.showLeds(`
     # # . . .
     `)
 basic.pause(500)
-MCP23017.setPortAsOutput(ADDRESS.A27, SET_PORT.A)
+MCP23017.setPortAsOutput(ADDRESS.A20, SET_PORT.A)
 MCP23017.setPortAsOutput(ADDRESS.A27, SET_PORT.B)
 myPins = [9, 15, 20, 21, 22, 23]
 list = 0
@@ -151,7 +151,7 @@ function makeSomeNoise() {
     music.playTone(notes[15 - myNote], music.beat(BeatFraction.Sixteenth))
 }
 function updateMCP23017() {
-    MCP23017.updateOutputAOn(ADDRESS.A27)
+    MCP23017.updateOutputAOn(ADDRESS.A20)
     MCP23017.updateOutputBOn(ADDRESS.A27)
 }
 function handleMCP23017Out() {
@@ -174,7 +174,7 @@ function handleMCP23017offs() {
         for (let handleMCP23017offsIndexA = 0; handleMCP23017offsIndexA <= 8 - 1; handleMCP23017offsIndexA++) {
             if (input.runningTime() > portATimers[handleMCP23017offsIndexA] + portAOnTimes[handleMCP23017offsIndexA]) {
                 MCP23017.clearOutputA(handleMCP23017offsIndexA)
-                MCP23017.updateOutputAOn(ADDRESS.A27)
+                MCP23017.updateOutputAOn(ADDRESS.A20)
             }
         }
     }
